@@ -3,466 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>만성 정신질환자 배변 간호 - 거대결장이 확인된 경우</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Chosen Palette: Calm Neutrals (Stone, Slate, Sky Blue) -->
-    <!-- Application Structure Plan: 
-        본 SPA는 복잡한 의학적 주제(정신질환자의 거대결장 원인)를 사용자가 쉽게 탐색할 수 있도록 탭 기반의 주제별 섹션 구조로 설계되었습니다.
-        1. '소개': 문제의 정의와 중요성을 제시합니다.
-        2. '주요 원인': 가장 큰 비중을 차지하는 약물 부작용을 데이터(도넛/막대 차트)와 함께 심층 분석합니다.
-        3. '복합 요인': 생활 습관, 행동 등 부가적인 원인들을 설명합니다.
-        4. '발생 과정': 원인들이 거대결장으로 이어지는 과정을 시각적(HTML/CSS 다이어그램)으로 보여줍니다.
-        5. '예방 및 관리': 실질적인 해결책을 제시합니다.
-        이 구조는 사용자가 '무엇인지'('소개')부터 '왜'('주요 원인', '복합 요인'), '어떻게'('발생 과정'), '그래서 어떡해야 하는지'('예방')까지 논리적 흐름에 따라 정보를 점진적으로 학습할 수 있도록 유도합니다. 차트 및 다이어그램과의 상호작용(클릭 시 세부 정보 표시)은 사용자의 능동적인 탐색을 장려합니다.
-    -->
-    <!-- Visualization & Content Choices:
-        1.  정보: 원인별 기여도
-            - 목표: 정보 전달 (비율)
-            - 시각화: 도넛 차트 (Canvas)
-            - 상호작용: 차트 섹션 클릭 시 하단에 해당 원인에 대한 상세 설명 텍스트 표시
-            - 정당성: 각 원인이 전체 문제에서 차지하는 비중을 직관적으로 보여주며, 상호작용을 통해 시각 자료와 텍스트 설명을 연결합니다.
-            - 라이브러리: Chart.js
-        2.  정보: 주요 약물별 변비 유발 위험도
-            - 목표: 비교
-            - 시각화: 가로 막대 차트 (Canvas)
-            - 상호작용: 막대 호버 시 툴팁으로 상세 위험도 표시
-            - 정당성: 거대결장의 가장 큰 원인인 약물들의 위험도를 명확하게 비교/대조하여 경각심을 줍니다.
-            - 라이브러리: Chart.js
-        3.  정보: 거대결장 발생 메커니즘 (단계별)
-            - 목표: 조직화 (프로세스)
-            - 시각화: HTML/CSS/Tailwind 기반 순서도 (Flexbox와 div, 화살표 문자 사용)
-            - 상호작용: 각 단계(div) 클릭 시 하단에 해당 단계의 상세 설명 토글(표시/숨김)
-            - 정당성: SVG/Mermaid 없이도 복잡한 발생 과정을 단계별로 명확하게 시각화하며, 클릭 상호작용으로 사용자가 원하는 정보만 선택적으로 볼 수 있게 합니다.
-            - 라이브러리: Vanilla JS + HTML/Tailwind
-        4.  정보: 섹션별 상세 설명 텍스트
-            - 목표: 정보 전달 (심층)
-            - 시각화: 텍스트 블록
-            - 상호작용: 상단 내비게이션 탭 클릭 시 해당 섹션의 텍스트와 시각 자료만 표시 (SPA 동작)
-            - 정당성: 각 주제에 대한 깊이 있는 정보를 제공하며, SPA 내비게이션을 통해 콘텐츠를 구조화합니다.
-            - 라이브러리: Vanilla JS (DOM 조작)
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <title>한마음정신병원 | 거대결장 간호 프로토콜</title>
     <style>
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 350px;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
+            line-height: 1.6;
+            backgr기 */
+            border-color: #b3e0ff;
         }
-        .bar-chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 350px;
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            font-size: 0.9em;
+            color: #6c757d;
         }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
-            .bar-chart-container {
-                height: 300px;
-            }
-        }
-        .nav-btn {
-            @apply px-4 py-2 text-sm font-medium text-slate-700 rounded-t-lg transition-colors duration-200 hover:bg-sky-100;
-        }
-        .nav-btn.active {
-            @apply bg-white text-sky-700 border border-slate-300 border-b-white -mb-px shadow-sm;
-        }
-        .content-section {
-            @apply bg-white p-6 md:p-8 rounded-b-lg rounded-tr-lg border border-slate-300 shadow-sm;
-        }
-        .process-step {
-            @apply bg-slate-100 border border-slate-300 rounded-lg p-4 text-center min-w-[120px] md:min-w-[150px] cursor-pointer hover:shadow-md transition-shadow;
-        }
-        .process-arrow {
-            @apply text-3xl text-slate-400 mx-2 md:mx-4 flex items-center justify-center;
-        }
+
     </style>
 </head>
-<body class="bg-stone-50 font-sans text-slate-800 p-4 md:p-8">
+<body>
 
-    <div class="max-w-6xl mx-auto">
-        
-        <header class="mb-6 text-center">
-            <h1 class="text-3xl md:text-4xl font-bold text-sky-800">거대결장 진단 받은 후 간호-만성정신질환자 중심</h1>
-            <p class="text-lg text-slate-600 mt-2"> - 한마음정신병원 간호부 - </p>
+    <div class="container">
+        <header>
+            <h1>만성 정신질환 환자의 거대결장 간호</h1>
+            <p>환자 안전을 위한 예방 중심 간호 프로토콜</p>
+            <p class="author">한마음정신병원 간호부</p>
         </header>
 
-        <nav class="flex flex-wrap border-b border-slate-300 mb-0">
-            <button id="nav-home" class="nav-btn active" data-target="home">/ 소개 /</button>
-            <button id="nav-causes" class="nav-btn" data-target="causes">/ 주요 원인 /</button>
-            <button id="nav-factors" class="nav-btn" data-target="factors">/ 복합 요인 /</button>
-            <button id="nav-mechanism" class="nav-btn" data-target="mechanism">/ 발생 과정 /</button>
-            <button id="nav-prevention" class="nav-btn" data-target="prevention">/ 예방 및 관리 /</button>
-        </nav>
-
         <main>
-            <!-- 1. 소개 섹션 -->
-            <section id="content-home" class="content-section">
-                <h2 class="text-2xl font-semibold text-sky-700 mb-4">문제의 정의와 중요성</h2>
-                <p class="mb-4 text-slate-700">
-                    이 보고서는 만성 정신질환을 앓고 있는 환자들에게서 비교적 높은 빈도로 발생하는 심각한 합병증인 '거대결장(Megacolon)'의 발생 원인을 탐구합니다. 거대결장은 대장이 비정상적으로 확장되고 운동 기능이 저하되는 상태를 말하며, 심각한 변비, 복부 팽만, 그리고 방치 시 장폐색, 천공 등 생명을 위협하는 상황으로 이어질 수 있습니다.
-                </p>
-                <div class="grid md:grid-cols-2 gap-6 mt-6">
-                    <div class="bg-slate-50 p-5 rounded-lg border border-slate-200">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">거대결장이란 무엇인가?</h3>
-                        <p>대장의 직경이 비정상적으로 늘어난 상태로, 장 내용물의 이동이 심각하게 저해됩니다. 주로 만성적인 변비가 그 원인이 되며, 장의 신경 또는 근육 기능에 문제가 생겨 발생합니다. 진단은 보통 복부 X-ray나 CT 촬영을 통해 이루어집니다.</p>
-                    </div>
-                    <div class="bg-slate-50 p-5 rounded-lg border border-slate-200">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">왜 정신질환자에게 더 흔한가?</h3>
-                        <p>만성 정신질환자는 질환 자체의 특성, 치료에 사용되는 약물의 부작용, 그리고 생활 환경적 요인들이 복합적으로 작용하여 일반인보다 심각한 위장관 운동 저하를 겪을 위험이 높습니다. 이로 인해 만성 변비가 발생하기 쉽고, 이는 거대결장으로 진행될 수 있는 주요 위험 요소입니다.</p>
-                    </div>
-                </div>
-            </section>
+            <a href="introduction.html" class="card-link">
+                <span class="title">I. 서론: 왜 정신과 환자인가?</span>
+                <span class="description">
+                    정신과 환자, 특히 만성 조현병 환자에게 거대결장이 치명적인 이유와 간호 중재의 중요성을 개괄합니다.
+                </span>
+            </a>
 
-            <!-- 2. 주요 원인 섹션 -->
-            <section id="content-causes" class="content-section hidden">
-                <h2 class="text-2xl font-semibold text-sky-700 mb-4">주요 원인: 약물 부작용</h2>
-                <p class="mb-6 text-slate-700">
-                    만성 정신질환자 거대결장 발생의 가장 중요하고 직접적인 원인은 치료에 사용되는 '항정신병 약물'입니다. 많은 약물들이 장의 운동을 조절하는 신경전달물질(특히 아세틸콜린)을 차단하는 '항콜린성 부작용'을 가지고 있습니다. 이는 장의 연동 운동을 심각하게 둔화시켜 만성 변비를 유발합니다.
-                </p>
-                
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <h3 class="text-xl font-semibold text-slate-800 mb-3 text-center">거대결장 발생 원인 기여도</h3>
-                        <div class="chart-container">
-                            <canvas id="causesDonutChart"></canvas>
-                        </div>
-                        <p class="text-center text-sm text-slate-500 mt-2">차트의 각 항목을 클릭하여 세부 정보를 확인하세요.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-semibold text-slate-800 mb-3 text-center">주요 항정신병 약물 변비 위험도 비교</h3>
-                        <div class="bar-chart-container">
-                            <canvas id="medicationBarChart"></canvas>
-                        </div>
-                    </div>
-                </div>
+            <a href="pathophysiology.html" class="card-link">
+                <span class="title">II. 병태생리: 거대결장의 발병 기전</span>
+                <span class="description">
+                    약물(클로자핀 등), 질병 자체(자율신경계), 생활 습관이 복합적으로 작용하여 거대결장으로 이행하는 3중 위협(Three-Hit) 모델을 고찰합니다.
+                </span>
+            </a>
 
-                <div id="cause-details" class="mt-8 space-y-4">
-                    <div id="detail-med" class="bg-blue-50 border border-blue-200 p-4 rounded-lg hidden">
-                        <h4 class="font-bold text-blue-800">상세: 항정신병 약물 부작용 (기여도 65%)</h4>
-                        <p>특히 클로자핀(Clozapine)과 같은 비정형 항정신병 약물은 강력한 항콜린 효과와 장 운동 억제 효과로 인해 '클로자핀 유발성 위장관 저운동증(CIGH)'을 일으킬 수 있습니다. 이는 거대결장의 가장 큰 단일 위험 요인입니다.</p>
-                    </div>
-                    <div id="detail-life" class="bg-teal-50 border border-teal-200 p-4 rounded-lg hidden">
-                        <h4 class="font-bold text-teal-800">상세: 생활 습관 요인 (기여도 20%)</h4>
-                        <p>활동량 감소(좌식 생활), 저섬유질 식이, 불충분한 수분 섭취 등은 장 운동을 더욱 둔화시켜 변비를 악화시킵니다. 이는 약물 부작용과 결합하여 위험을 크게 높입니다.</p>
-                    </div>
-                    <div id="detail-behav" class="bg-gray-50 border border-gray-200 p-4 rounded-lg hidden">
-                        <h4 class="font-bold text-gray-800">상세: 행동 및 심리적 요인 (기여도 15%)</h4>
-                        <p>질환의 증상(음성 증상, 무관심)으로 인해 배변 욕구를 무시하거나 표현하지 못하는 경우가 많습니다. 또한, 화장실 이용이 제한적인 환경이나 프라이버시 부족도 변비를 심화시키는 요인이 됩니다.</p>
-                    </div>
-                </div>
-            </section>
+            <a href="assessment.html" class="card-link">
+                <span class="title">III. 간호 사정: 조기 발견과 위험 평가</span>
+                <span class="description">
+                    인지 저하 및 음성 증상으로 표현이 어려운 환자를 위한 간호 사정 도구, 복부 사정, '장 기능 모니터링(Bowel Monitoring)'의 구체적인 방법을 다룹니다.
+                </span>
+            </a>
 
-            <!-- 3. 복합 요인 섹션 -->
-            <section id="content-factors" class="content-section hidden">
-                <h2 class="text-2xl font-semibold text-sky-700 mb-4">복합적인 기여 요인들</h2>
-                <p class="mb-6 text-slate-700">
-                    약물 부작용이 가장 큰 원인이지만, 여러 가지 환경적, 신체적, 행동적 요인들이 복합적으로 작용하여 거대결장의 위험을 더욱 증가시킵니다. 이들 요인은 서로 상호작용하며 악순환의 고리를 만듭니다.
-                </p>
-                <div class="space-y-6">
-                    <div class="bg-slate-50 p-5 rounded-lg border border-slate-200">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">1. 생활 습관 및 환경</h3>
-                        <ul class="list-disc list-inside space-y-1 text-slate-700">
-                            <li><strong>활동량 부족:</strong> 장기 입원이나 음성 증상으로 인한 신체 활동 감소는 장 연동 운동을 직접적으로 저하시킵니다.</li>
-                            <li><strong>식이 문제 (복잡성):</strong> 저섬유질 식단과 불충분한 수분 섭취는 변비를 유발합니다. 하지만 '식이섬유 역설'에서 보듯, 이미 장 기능이 극도로 저하된 환자에게는 고섬유질 식이가 오히려 장에 부담을 주어 문제를 악화시킬 수도 있습니다.</li>
-                            <li><strong>환경적 제한:</strong> 공동생활 환경에서의 프라이버시 부족이나 정해진 시간에만 화장실을 이용해야 하는 규칙 등이 배변을 참게 만듭니다.</li>
-                        </ul>
-                    </div>
-                    <div class="bg-slate-50 p-5 rounded-lg border border-slate-200">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">2. 행동 및 심리적 요인</h3>
-                        <ul class="list-disc list-inside space-y-1 text-slate-700">
-                            <li><strong>배변 욕구 무시:</strong> 환각, 망상, 무관심 등의 증상으로 인해 정상적인 배변 신호를 인지하지 못하거나 의도적으로 무시할 수 있습니다.</li>
-                            <li><strong>의사소통의 어려움:</strong> 변비의 불편함을 의료진이나 보호자에게 명확하게 표현하지 못하여 조기 발견이 늦어질 수 있습니다.</li>
-                            <li><strong>이식증(Pica):</strong> 음식물이 아닌 것을 섭취하는 행동이 장폐색의 위험을 높일 수 있습니다.</li>
-                        </ul>
-                    </div>
-                    <div class="bg-slate-50 p-5 rounded-lg border border-slate-200">
-                        <h3 class="text-xl font-semibold text-slate-800 mb-2">3. 다제약물 병용 (Polypharmacy)</h3>
-                        <p class="text-slate-700">항정신병 약물 외에도 항우울제, 항파킨슨제(항콜린제), 진정제 등 변비를 유발할 수 있는 여러 약물을 동시에 복용하는 경우가 많습니다. 이러한 약물들의 부작용이 중첩되면 위장관 기능 저하는 더욱 심각해집니다.</p>
-                    </div>
-                </div>
-            </section>
+            <a href="prevention.html" class="card-link">
+                <span class="title">IV. 예방적 간호 중재 (핵심)</span>
+                <span class="description">
+                    거대결장 예방의 핵심. 예방적 완하제 사용 프로토콜, 고섬유질 식이, 수분 섭취, 운동 프로그램을 포함한 비약물적 중재 전략입니다.
+                </span>
+            </a>
 
-            <!-- 4. 발생 과정 섹션 -->
-            <section id="content-mechanism" class="content-section hidden">
-                <h2 class="text-2xl font-semibold text-sky-700 mb-4">거대결장 발생 과정 (메커니즘)</h2>
-                <p class="mb-6 text-slate-700">
-                    거대결장은 하루아침에 발생하지 않습니다. 여러 위험 요인들이 장기간에 걸쳐 누적되면서 점진적으로 진행됩니다. 아래의 다이어그램은 이 과정을 단계별로 보여줍니다. 각 단계를 클릭하면 상세한 설명을 볼 수 있습니다.
-                </p>
-                
-                <div class="flex flex-col md:flex-row justify-center items-center flex-wrap gap-y-4">
-                    <div class="process-step" data-target="step-1">
-                        <span class="text-sm font-semibold">1단계</span><br>위험 요인 노출
-                    </div>
-                    <div class="process-arrow">⬇︎</div>
-                    <div class="process-step" data-target="step-2">
-                        <span class="text-sm font-semibold">2단계</span><br>장 운동 저하
-                    </div>
-                    <div class="process-arrow">⬇︎</div>
-                    <div class="process-step" data-target="step-3">
-                        <span class="text-sm font-semibold">3단계</span><br>만성 변비
-                    </div>
-                    <div class="process-arrow">⬇︎</div>
-                    <div class="process-step" data-target="step-4">
-                        <span class="text-sm font-semibold">4F단계</span><br>분변 매복
-                    </div>
-                    <div class="process-arrow">⬇︎</div>
-                    <div class="process-step bg-red-100 border-red-300" data-target="step-5">
-                        <span class="text-sm font-semibold">5단계</span><br>대장 확장 (거대결장)
-                    </div>
-                </div>
+            <a href="intervention.html" class="card-link">
+                <span class="title">V. 급성기 간호 중재</span>
+                <span class="description">
+                    분변 매복(Fecal Impaction) 발생 시 간호, 장 마비(Ileus) 및 독성 거대결장(Toxic Megacolon) 징후 발견 시 응급 대응 및 외과적 중재 의뢰 프로토콜입니다.
+                </span>
+            </a>
 
-                <div id="mechanism-details" class="mt-8 space-y-4">
-                    <div id="detail-step-1" class="bg-slate-50 border border-slate-200 p-4 rounded-lg hidden">
-                        <h4 class="font-bold text-slate-800">1단계: 위험 요인 노출</h4>
-                        <p>항콜린성 부작용이 있는 약물(클로자핀 등)을 복용하고, 활동량이 적으며, 섬유질 섭취가 부족한 상태가 시작점입니다.</p>
-                    </div>
-                    <div id="detail-step-2" class="bg-slate-50 border border-slate-200 p-4 rounded-lg hidden">
-                        <h4 class="font-bold text-slate-800">2단계: 장 운동 저하</h4>
-                        <p>약물이 장의 신경을 둔화시키고, 부족한 활동량과 식이섬유가 장의 연동 운동을 더욱 약하게 만듭니다. 음식물 찌꺼기가 장에 머무는 시간이 길어집니다.</p>
-                    </div>
-                    <div id="detail-step-3" class="bg-slate-50 border border-slate-200 p-4 rounded-lg hidden">
-                        <h4 class="font-bold text-slate-800">3단계: 만성 변비</h4>
-                        <p>배변 횟수가 주 3회 미만으로 줄고, 변이 딱딱해지며, 배변 시 과도한 힘이 필요하게 됩니다. 환자는 종종 불편감을 호소하지 못할 수 있습니다.</p>
-                    </div>
-                    <div id="detail-step-4" class="bg-slate-50 border border-slate-200 p-4 rounded-lg hidden">
-                        <h4 class="font-bold text-slate-800">4단계: 분변 매복 (Fecal Impaction)</h4>
-                        <p>딱딱해진 변이 직장이나 S상 결장에 쌓여 배출되지 못하고 덩어리를 이룹니다. 이 덩어리가 장을 물리적으로 막기 시작합니다.</p>
-                    </div>
-                    <div id="detail-step-5" class="bg-slate-50 border border-slate-200 p-4 rounded-lg hidden">
-                        <h4 class="font-bold text-slate-800">5단계: 대장 확장 (거대결장)</h4>
-                        <p>분변 매복으로 인해 장 내부의 압력이 높아지고, 장벽이 지속적으로 팽창하여 탄력을 잃고 비정상적으로 늘어납니다. 이 상태가 바로 거대결장이며, 장 마비, 천공, 패혈증 등 치명적인 합병증으로 이어질 수 있습니다.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 5. 예방 및 관리 섹션 -->
-            <section id="content-prevention" class="content-section hidden">
-                <h2 class="text-2xl font-semibold text-sky-700 mb-4">예방 및 관리 전략</h2>
-                <p class="mb-6 text-slate-700">
-                    거대결장은 예방이 가장 중요합니다. 의료진, 보호자, 환자 본인의 다각적인 노력이 필요합니다. 조기 발견과 신속한 개입이 심각한 합병증을 막는 열쇠입니다.
-                </p>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-green-50 p-5 rounded-lg border border-green-200">
-                        <h3 class="text-xl font-semibold text-green-800 mb-2">1. 적극적인 모니터링</h3>
-                        <ul class="list-disc list-inside space-y-1 text-slate-700">
-                            <li><strong>배변 일지 작성:</strong> 매일 배변 횟수, 양, 특성을 기록합니다. (특히 고위험 약물 복용 시)</li>
-                            <li><strong>복부 팽만 관찰:</strong> 정기적으로 복부 팽만, 압통 여부를 확인합니다.</li>
-                            <li><strong>초기 증상 문진:</strong> 식욕 부진, 오심, 구토, 복통 등 초기 증상을 적극적으로 질문합니다.</li>
-                        </ul>
-                    </div>
-                    <div class="bg-blue-50 p-5 rounded-lg border border-blue-200">
-                        <h3 class="text-xl font-semibold text-blue-800 mb-2">2. 약물 관리 및 조절</h3>
-                        <ul class="list-disc list-inside space-y-1 text-slate-700">
-                            <li><strong>최소 유효 용량 사용:</strong> 가능한 가장 낮은 용량의 항정신병 약물을 사용합니다.</li>
-                            <li><strong>위험도 낮은 약물 고려:</strong> 변비 부작용이 적은 약물로의 변경을 검토합니다.</li>
-                            <li><strong>예방적 변비약:</strong> 고위험 약물(클로자핀 등) 처방 시 완하제(변비약)를 예방적으로 함께 처방하는 것을 적극 고려합니다.</li>
-                        </ul>
-                    </div>
-                    <div class="bg-yellow-50 p-5 rounded-lg border border-yellow-200">
-                        <h3 class="text-xl font-semibold text-yellow-800 mb-2">3. 생활 습관 및 식이 조절</h3>
-                        <ul class="list-disc list-inside space-y-1 text-slate-700">
-                            <li><strong>충분한 수분 섭취:</strong> 하루 1.5~2리터의 물을 마시도록 돕습니다.</li>
-                            <li><strong>규칙적인 운동:</strong> 가벼운 산책이라도 매일 꾸준히 하도록 하여 장 운동을 촉진합니다.</li>
-                            <li><strong>식이섬유의 역설 (중요):</strong>
-                                <ul class="list-decimal list-inside ml-4 mt-1">
-                                    <li>예방 단계에서는 적절한 섬유질(과일, 채소)이 변비를 막는 데 도움이 됩니다.</li>
-                                    <li>하지만 이미 장 운동이 심각하게 저하되거나 분변 매복이 의심될 경우, 고섬유질 식이는 오히려 장폐색 위험을 높일 수 있습니다. (식이섬유 역설)</li>
-                                    <li>이 경우, 의료진의 판단 하에 섬유질 섭취를 조절하거나 제한해야 할 수 있습니다.</li>
-                                </ul>
-                            </li>
-                            <li><strong>배변 습관 교육:</strong> 일정한 시간에 화장실을 가도록 하고, 배변 욕구를 참지 않도록 교육합니다.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+            <a href="education.html" class="card-link">
+                <span class="title">VI. 교육 자료 및 지침</span>
+                <span class="description">
+                    환자, 보호자, 그리고 간호 인력(간호사, 간호조무사)을 위한 변비 및 거대결장 예방 교육 자료 및 관리 지침서입니다.
+                </span>
+            </a>
         </main>
+
+        <footer>
+            &copy; 2025 한마음정신병원 간호부. All rights reserved.
+        </footer>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            const navButtons = document.querySelectorAll('.nav-btn');
-            const contentSections = document.querySelectorAll('.content-section');
-            const causeDetailSections = document.querySelectorAll('#cause-details > div');
-            const processSteps = document.querySelectorAll('.process-step');
-            const stepDetailSections = document.querySelectorAll('#mechanism-details > div');
-
-            let causesDonutChartInstance = null;
-            let medicationBarChartInstance = null;
-            
-            const causeData = {
-                labels: ['항정신병 약물 부작용', '생활 습관 요인', '행동/심리적 요인'],
-                datasets: [{
-                    data: [65, 20, 15],
-                    backgroundColor: [
-                        'rgba(59, 130, 246, 0.7)',  
-                        'rgba(20, 184, 166, 0.7)', 
-                        'rgba(107, 114, 128, 0.7)'  
-                    ],
-                    borderColor: [
-                        'rgba(59, 130, 246, 1)',
-                        'rgba(20, 184, 166, 1)',
-                        'rgba(107, 114, 128, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            };
-
-            const medicationData = {
-                labels: ['클로자핀 (Clozapine)', '올란자핀 (Olanzapine)', '할로페리돌 (Haloperidol)', 'SSRI 계열 (항우울제)'],
-                datasets: [{
-                    label: '변비 유발 상대적 위험도',
-                    data: [90, 70, 45, 20],
-                    backgroundColor: [
-                        'rgba(239, 68, 68, 0.7)', 
-                        'rgba(249, 115, 22, 0.7)',
-                        'rgba(234, 179, 8, 0.7)',
-                        'rgba(59, 130, 246, 0.7)' 
-                    ],
-                    borderColor: [
-                        'rgba(239, 68, 68, 1)',
-                        'rgba(249, 115, 22, 1)',
-                        'rgba(234, 179, 8, 1)',
-                        'rgba(59, 130, 246, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            };
-
-            function initDonutChart() {
-                const ctx = document.getElementById('causesDonutChart').getContext('2d');
-                if (causesDonutChartInstance) {
-                    causesDonutChartInstance.destroy();
-                }
-                causesDonutChartInstance = new Chart(ctx, {
-                    type: 'doughnut',
-                    data: causeData,
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                position: 'bottom',
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        return `${context.label}: ${context.raw}%`;
-                                    }
-                                }
-                            }
-                        },
-                        onClick: (event, elements) => {
-                            if (elements.length > 0) {
-                                const index = elements[0].index;
-                                const detailMap = ['detail-med', 'detail-life', 'detail-behav'];
-                                const targetId = detailMap[index];
-                                
-                                causeDetailSections.forEach(section => {
-                                    if (section.id === targetId) {
-                                        section.classList.remove('hidden');
-                                    } else {
-                                        section.classList.add('hidden');
-                                    }
-                                });
-                            }
-                        }
-                    }
-                });
-            }
-
-            function initBarChart() {
-                const ctx = document.getElementById('medicationBarChart').getContext('2d');
-                if (medicationBarChartInstance) {
-                    medicationBarChartInstance.destroy();
-                }
-                medicationBarChartInstance = new Chart(ctx, {
-                    type: 'bar',
-                    data: medicationData,
-                    options: {
-                        indexAxis: 'y',
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                display: false
-                            },
-                            title: {
-                                display: true,
-                                text: '약물별 변비 위험도'
-                            }
-                        },
-                        scales: {
-                            x: {
-                                beginAtZero: true,
-                                max: 100
-                            }
-                        }
-                    }
-                });
-            }
-
-            function showSection(targetId) {
-                contentSections.forEach(section => {
-                    if (section.id === `content-${targetId}`) {
-                        section.classList.remove('hidden');
-                    } else {
-                        section.classList.add('hidden');
-                    }
-                });
-
-                navButtons.forEach(button => {
-                    if (button.dataset.target === targetId) {
-                        button.classList.add('active');
-                    } else {
-                        button.classList.remove('active');
-                    }
-                });
-
-                if (targetId === 'causes') {
-                    if (!causesDonutChartInstance) initDonutChart();
-                    if (!medicationBarChartInstance) initBarChart();
-                }
-            }
-            
-            navButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetId = button.dataset.target;
-                    showSection(targetId);
-                });
-            });
-
-            processSteps.forEach(step => {
-                step.addEventListener('click', () => {
-                    const targetId = `detail-${step.dataset.target}`;
-                    const targetDetail = document.getElementById(targetId);
-
-                    if (targetDetail) {
-                        const isHidden = targetDetail.classList.contains('hidden');
-                        
-                        stepDetailSections.forEach(s => s.classList.add('hidden'));
-                        
-                        if (isHidden) {
-                            targetDetail.classList.remove('hidden');
-                        }
-                    }
-                });
-            });
-
-            showSection('home');
-        });
-    </script>
 </body>
 </html>
-
-
