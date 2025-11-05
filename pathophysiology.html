@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>만성 정신질환 환자의 거대결장 발병 기전</title>
+    <title>병태생리: 거대결장의 발병 기전</title>
     <style>
+        /* === 기본 스타일 === */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
             line-height: 1.7;
@@ -16,7 +17,7 @@
         .container {
             max-width: 900px;
             margin: 20px auto;
-            background-color: #f4f4f4; /* 컨테이너 배경을 body와 맞춤 */
+            background-color: #f4f4f4;
             border: none;
             padding: 0 10px;
             box-shadow: none;
@@ -28,7 +29,7 @@
             padding-bottom: 10px;
             margin-bottom: 20px;
             color: #1a1a1a;
-            background-color: #ffffff; /* 제목 영역은 흰색 배경 */
+            background-color: #ffffff;
             padding: 40px;
             border-radius: 8px;
             border: 1px solid #ddd;
@@ -38,156 +39,15 @@
             font-style: italic;
             font-weight: 600;
             color: #555;
-            margin: -30px 40px 30px 0; /* 제목 영역에 걸치도록 조정 */
+            margin: -30px 40px 30px 0;
             position: relative;
             z-index: 1;
         }
-        
-        /* === Collapsible Section Styles === */
-        details {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: box-shadow 0.3s ease;
-        }
-        details[open] {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
 
-        summary {
-            cursor: pointer;
-            padding: 20px 20px 20px 45px; /* 마커를 위한 왼쪽 여백 */
-            list-style: none; /* 기본 마커 제거 */
-            position: relative;
-            font-size: 1.6em;
-            font-weight: 600;
-            color: #005a9c;
-        }
-        summary::-webkit-details-marker {
-            display: none; /* Webkit 기본 마커 제거 */
-        }
-        summary h2 {
-            display: inline; /* H2가 마커와 같은 줄에 있도록 */
-            font-size: 1em; /* summary의 폰트 크기를 상속받음 (1.6em) */
-            font-weight: 600;
-            color: #005a9c;
-            margin: 0;
-            padding: 0;
-            border: none;
-        }
-        summary:before {
-            content: '►'; /* 닫혔을 때 마커 */
-            font-size: 0.9em;
-            color: #005a9c;
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%) rotate(0deg);
-            transition: transform 0.2s ease-in-out;
-        }
-        details[open] summary:before {
-            transform: translateY(-50%) rotate(90deg); /* 열렸을 때 마커 */
-        }
-        details[open] summary {
-            border-bottom: 1px solid #eee;
-        }
-
-        /* === Collapsible Content Styles === */
-        .details-content {
-            padding: 20px 30px 30px 30px;
-            border-top: 1px solid #eee;
-            margin-top: -1px; /* summary의 border와 겹치게 */
-        }
-        
-        /* 열릴 때 부드러운 애니메이션 */
-        details[open] .details-content {
-            animation: fadeIn 0.5s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* === Content Element Styles (inside .details-content) === */
-        .details-content p {
-            margin-bottom: 16px;
-            text-align: justify;
-        }
-        .details-content h3 {
-            font-size: 1.3em;
-            font-weight: 600;
-            color: #333;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-top: 1px dashed #ccc;
-            padding-top: 20px;
-        }
-        .details-content h4 {
-            font-size: 1.1em;
-            font-weight: 600;
-            color: #555;
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-        .details-content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            font-size: 0.95em;
-            border: 1px solid #ddd;
-        }
-        .details-content table caption {
-            font-size: 1.1em;
-            font-weight: 600;
-            caption-side: top;
-            padding: 10px;
-            color: #333;
-            text-align: left;
-        }
-        .details-content table th, .details-content table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-            vertical-align: top;
-        }
-        .details-content table th {
-            background-color: #f7f7f7;
-            font-weight: 600;
-            color: #444;
-        }
-        .details-content table tbody tr:nth-child(even) {
-            background-color: #fcfcfc;
-        }
-        .details-content ol, .details-content ul {
-            padding-left: 20px;
-            margin-bottom: 16px;
-        }
-        .details-content li {
-            margin-bottom: 8px;
-        }
-        .details-content dl {
-            margin-bottom: 16px;
-        }
-        .details-content dt {
-            font-weight: 600;
-            color: #444;
-            margin-top: 10px;
-        }
-        .details-content dd {
-            margin-left: 20px;
-            margin-bottom: 10px;
-            text-align: justify;
-        }
-        .details-content strong {
-            color: #004a80;
-        }
- /* 링크 스타일을 버튼처럼 꾸미는 예시 */
+        /* === 메인으로 돌아가기 버튼 === */
         .back-to-main {
             display: inline-block;
-            margin: 20px 0;
+            margin: 20px 0 0 10px; /* 위치 조정 */
             padding: 10px 18px;
             background-color: #005a9c;
             color: #ffffff;
@@ -200,310 +60,419 @@
             background-color: #004a80;
         }
 
+        /* === 탭 인터페이스 스타일 === */
+        .tab-container {
+            width: 100%;
+            margin-top: 30px;
+        }
+        .tab-nav {
+            display: flex;
+            border-bottom: 2px solid #005a9c;
+        }
+        .tab-link {
+            padding: 12px 20px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            margin-right: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #555;
+            transition: all 0.3s ease;
+            position: relative;
+            bottom: -2px; /* 하단 border와 겹치게 */
+        }
+        .tab-link:hover {
+            background-color: #e0e0e0;
+        }
+        .tab-link.active {
+            background-color: #ffffff;
+            color: #005a9c;
+            border-bottom: 2px solid #ffffff; /* 하단 border 덮어쓰기 */
+            font-weight: 700;
+        }
+        
+        /* === 탭 콘텐츠 스타일 === */
+        .tab-content {
+            display: none; /* 기본적으로 숨김 */
+            background-color: #ffffff;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            width: 100%;
+            box-sizing: border-box; /* 패딩 포함 크기 계산 */
+        }
+        .tab-content.active {
+            display: block; /* 활성화된 탭만 보임 */
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* === 탭 내부 콘텐츠 스타일 (기존 스타일 재활용) === */
+        .tab-content h2 {
+            font-size: 1.6em;
+            font-weight: 600;
+            color: #005a9c;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 10px; /* h2 상단 마진 조정 */
+            margin-bottom: 20px;
+        }
+        .tab-content h3 {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-top: 1px dashed #ccc;
+            padding-top: 20px;
+        }
+        .tab-content h4 {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .tab-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            border: 1px solid #ddd;
+        }
+        .tab-content table caption {
+            font-size: 1.1em;
+            font-weight: 600;
+            caption-side: top;
+            padding: 10px;
+            color: #333;
+            text-align: left;
+        }
+        .tab-content table th, .tab-content table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .tab-content table th {
+            background-color: #f7f7f7;
+            font-weight: 600;
+            color: #444;
+        }
+        .tab-content table tbody tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+        .tab-content p { margin-bottom: 16px; text-align: justify; }
+        .tab-content ol, .tab-content ul { padding-left: 20px; margin-bottom: 16px; }
+        .tab-content li { margin-bottom: 8px; }
+        .tab-content dl { margin-bottom: 16px; }
+        .tab-content dt { font-weight: 600; color: #444; margin-top: 10px; }
+        .tab-content dd { margin-left: 20px; margin-bottom: 10px; text-align: justify; }
+        .tab-content strong { color: #004a80; }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-to-main">&laquo; 메인 인덱스로 돌아가기</a>
-        
-        <h1>II. 병태생리: 거대결장의 발병 기전</h1>
+
     <div class="container">
-        <h1>만성 정신질환 환자의 거대결장 발병 기전: 약물, 질병 및 생활 습관의 복합적 상호작용에 대한 병태생리학적 고찰</h1>
+        
+        <a href="index.html" class="back-to-main">&laquo; 메인 인덱스로 돌아가기</a>
+        
+        <h1>만성 정신질환 환자의 거대결장 발병 기전</h1>
         <p class="author">저자: 한마음정신병원 간호부</p>
 
-        <main>
-            <details>
-                <summary><h2>I. 서론: 만성 정신질환과 위장관 재앙(Gastrointestinal Catastrophe)의 교차점</h2></summary>
-                <div class="details-content">
-                    <p>만성 정신질환, 특히 조현병 환자군에서 위장관 기능 장애는 임상적으로 매우 흔하게 관찰됨에도 불구하고, 그 심각성이 간과되는 경향이 있다.<sup>1</sup> 정신과 환자에서의 변비 유병률은 일반 인구 집단에 비해 20%에서 37%까지 현저히 높게 보고된다.<sup>1</sup> 이러한 문제는 단순한 불편감을 넘어서, 장 마비(ileus), 장 폐쇄(bowel obstruction), 장 허혈(ischemia), 천공(perforation), 그리고 궁극적으로는 생명을 위협하는 거대결장(megacolon)으로 진행될 수 있다.<sup>2</sup></p>
-                    <p>만성 정신질환 환자에서 거대결장의 발병은 단일 요인에 의해 발생하는 것이 아니라, <strong>(1) 향정신성 약물의 복잡한 약리학적 부작용</strong>, <strong>(2) 정신 질환 자체가 지닌 고유의 신경생물학적 특성</strong>, 그리고 <strong>(3) 환자군의 특징적인 생활 습관 요인</strong>들이 복합적으로 상호작용한 결과로 이해해야 한다.<sup>1</sup></p>
-                    <p>본 보고서는 이러한 다요인적 병인을 병태생리학적 관점에서 체계적으로 분석하고자 한다. 특히, 클로자핀(Clozapine)과 같이 특정 약물과 연관되어 그 심각성이 심각하게 과소평가된 위장관 운동 저하(Gastrointestinal Hypomotility)의 위험성을 조명하고<sup>2</sup>, 만성적인 변비 상태가 어떻게 치명적인 거대결장으로 이행하는지에 대한 병태생리학적 기전을 규명하는 데 목적이 있다.</p>
-                </div>
-            </details>
+        <div class="tab-container">
+            <div class="tab-nav">
+                <button class="tab-link active" onclick="openTab(event, 'tab-definition')">II. 정의 및 분류</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-drugs')">III. 약물 요인</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-disease')">IV. 질병 요인</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-lifestyle')">V. 생활 습관</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-progression')">VI. 진행 경로</button>
+            </div>
 
-            <details>
-                <summary><h2>II. 거대결장(Megacolon)의 의학적 정의 및 임상적 분류</h2></summary>
-                <div class="details-content">
-                    <h3>A. 병태생리학적 개념: 결장 확장과 신경근 기능 장애</h3>
-                    <p>거대결장은 결장(colon)의 비정상적이고 병적인 확장(dilation)을 특징으로 하는 의학적 상태를 총칭한다.<sup>6</sup> 이는 결장의 정상적인 연동 운동(peristalsis)을 조절하는 신경계 또는 근육층의 기능 부전으로 인해 발생하며, 이로 인해 장 내용물이 효과적으로 항문으로 이동하지 못하고 결장 내에 정체되어 장이 늘어나게 된다.<sup>8</sup></p>
-                    <p>병인은 선천성과 후천성으로 명확히 구분된다. 선천성 거대결장, 또는 히르쉬스프룽병(Hirschsprung's disease)은 배아 발달 과정에서 장신경총(enteric nerve plexus)의 부교감신경절 세포가 원위부 결장, 특히 직장에 적절히 분포하지 않아(aganglionosis) 해당 분절이 수축된 상태로 유지됨으로써 기능적 폐쇄를 유발하는 질환이다.<sup>8</sup> 이는 본 보고서의 주요 대상인 만성 정신질환 환자에서 발생하는 후천성 거대결장과는 병태생리학적으로 명확히 구별되어야 한다.</p>
+            <div id="tab-definition" class="tab-content active">
+                <h2>II. 거대결장(Megacolon)의 의학적 정의 및 임상적 분류</h2>
+                <h3>A. 병태생리학적 개념: 결장 확장과 신경근 기능 장애</h3>
+                <p>거대결장은 결장(colon)의 비정상적이고 병적인 확장(dilation)을 특징으로 하는 의학적 상태를 총칭한다.<sup>6</sup> 이는 결장의 정상적인 연동 운동(peristalsis)을 조절하는 신경계 또는 근육층의 기능 부전으로 인해 발생하며, 이로 인해 장 내용물이 효과적으로 항문으로 이동하지 못하고 결장 내에 정체되어 장이 늘어나게 된다.<sup>8</sup></p>
+                <p>병인은 선천성과 후천성으로 명확히 구분된다. 선천성 거대결장, 또는 히르쉬스프룽병(Hirschsprung's disease)은 배아 발달 과정에서 장신경총(enteric nerve plexus)의 부교감신경절 세포가 원위부 결장, 특히 직장에 적절히 분포하지 않아(aganglionosis) 해당 분절이 수축된 상태로 유지됨으로써 기능적 폐쇄를 유발하는 질환이다.<sup>8</sup> 이는 본 보고서의 주요 대상인 만성 정신질환 환자에서 발생하는 후천성 거대결장과는 병태생리학적으로 명확히 구별되어야 한다.</p>
 
-                    <h3>B. 주요 임상 유형: 급성, 만성 및 독성 거대결장의 감별</h3>
-                    <p>후천성 거대결장은 임상 양상에 따라 만성, 급성(가성폐쇄), 그리고 독성 거대결장으로 분류할 수 있다.</p>
+                <h3>B. 주요 임상 유형: 급성, 만성 및 독성 거대결장의 감별</h3>
+                <p>후천성 거대결장은 임상 양상에 따라 만성, 급성(가성폐쇄), 그리고 독성 거대결장으로 분류할 수 있다.</p>
+                
+                <h4>만성 거대결장 (Chronic Megacolon)</h4>
+                <p>선천적 원인 외에 후천적으로 발생하는 만성 거대결장은 "난치성 변비(refractory constipation)의 최종 단계(end-stage)" 또는 "진행된 결장 기능 부전(advanced colon failure)"으로 정의된다.<sup>10</sup> 이는 장기간의 배변 장애와 대변 정체로 인해 결장 벽의 신경 및 근육층이 비가역적인 손상을 입어, 결장이 연동 운동 능력을 상실하고 영구적으로 확장된 상태를 의미한다.<sup>11</sup></p>
+
+                <h4>독성 거대결장 (Toxic Megacolon, TM)</h4>
+                <p>이는 염증성 장 질환(IBD)이나 특정 감염성 대장염(infectious colitis)의 심각한 합병증으로 발생하는 급성, 응급 상태이다.<sup>6</sup> 핵심적인 정의는 (1) 기계적 폐쇄가 없는 비폐쇄성(nonobstructive) 결장 확장(일반적으로 횡행결장 직경 6 cm 이상)과 (2) 전신 독성(systemic toxicity, 예: 발열, 빈맥, 백혈구 증가)의 동반이다.<sup>6</sup> 병태생리학적으로는 심각한 점막 염증이 유도성 산화질소 합성효소(inducible nitric oxide synthase, iNOS)를 활성화시키고, 이로 인해 생성된 과도한 산화질소(NO)가 결장 평활근을 이완시켜 마비와 급성 확장을 유발하는 것으로 추정된다.<sup>6</sup></p>
+
+                <h4>급성 결장 가성폐쇄 (Acute Colonic Pseudo-obstruction, ACPO)</h4>
+                <p>Ogilvie's syndrome이라고도 불리며, 기계적 폐쇄 없이 급성 결장 확장이 발생한다는 점은 독성 거대결장과 유사하나, 전신 독성이나 염증의 징후가 동반되지 않는다는 점에서 감별된다.<sup>13</sup></p>
+                
+                <p>만성 정신질환 환자에서 관찰되는 거대결장은 이러한 분류가 명확히 나뉘지 않고 중첩되어 나타날 수 있다. 즉, 향정신성 약물과 질병 자체의 영향으로 만성적인 결장 운동 저하가 발생하여 '만성 거대결장'<sup>10</sup>의 기반을 형성할 수 있다. 이 상태에서 심각한 분변 매복(fecal impaction)이 발생하면, 딱딱한 대변이 장벽을 압박하여 '분변성 궤양(stercoral ulcer)'과 국소 '허혈(ischemia)'을 유발할 수 있다.<sup>3</sup> 이 허혈과 궤양으로 인한 염증 반응은 '독성 거대결장'<sup>6</sup>의 염증성 조건을 충족시키며, 만성 기능 부전 상태가 급성 전신 독성 상태로 이행하는 치명적인 경로가 될 수 있다.</p>
+
+                <table>
+                    <caption>표 1. 거대결장의 임상적 분류 및 감별 진단</caption>
+                    <thead>
+                        <tr>
+                            <th>유형</th>
+                            <th>핵심 병태생리</th>
+                            <th>주요 원인</th>
+                            <th>임상적 특징</th>
+                            <th>정신질환과의 연관성</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>선천성 거대결장 (히르쉬스프룽병)</td>
+                            <td>원위부 장신경총의 선천적 결여 (Aganglionosis)</td>
+                            <td>유전적, 발달적 요인</td>
+                            <td>신생아기 태변 배출 지연, 만성 변비.<sup>8</sup></td>
+                            <td>직접적 연관성 낮음. (감별 진단)</td>
+                        </tr>
+                        <tr>
+                            <td>만성 후천성 거대결장</td>
+                            <td>만성 변비/폐쇄로 인한 결장 근신경계의 비가역적 손상 (Colon failure)<sup>10</sup></td>
+                            <td>난치성 변비 (서행성, 골반저 기능장애), 신경계 질환.<sup>10</sup></td>
+                            <td>심각한 만성 변비, 복부 팽만. 전신 독성 없음.</td>
+                            <td>정신질환자의 약물성/생활습관성 변비의 최종 단계일 수 있음.</td>
+                        </tr>
+                        <tr>
+                            <td>독성 거대결장 (TM)</td>
+                            <td>심각한 결장 염증 &rarr; NO 매개 평활근 마비 &rarr; 급성 확장<sup>6</sup></td>
+                            <td>염증성 장 질환(IBD), 감염성 대장염 (예: C. difficile).<sup>6</sup></td>
+                            <td>급성 발병, 복통, 복부 팽만, 전신 독성 (발열, 빈맥).<sup>6</sup></td>
+                            <td>유발 요인으로 항우울제, 항콜린제가 언급됨.<sup>6</sup> 만성 변비 합병증(허혈)으로 2차적 발생 가능.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="tab-drugs" class="tab-content">
+                <h2>III. 약물 유발성 위장관 운동 저하: 향정신성 약물의 핵심적 역할</h2>
+                <p>만성 정신질환 환자에서 발생하는 거대결장의 가장 중요하고 직접적인 원인은 치료에 사용되는 향정신성 약물의 약리학적 부작용이다.<sup>5</sup></p>
+                <h3>A. 다중 수용체 차단 기전: 장신경계(ENS) 억제와 결장 통과 시간 지연</h3>
+                <p>많은 향정신성 약물, 특히 항정신병 약물과 항우울제는 강력한 항콜린성(anticholinergic) 부작용을 지닌다.<sup>14</sup> ... (중략) ... 이러한 광범위한 억제 작용은 위장관 통과 시간(gastrointestinal transit time)을 치명적인 수준으로 연장시키며<sup>17</sup>, 이는 만성 변비와 거대결장의 핵심적인 전구 단계가 된다.</p>
+
+                <h3>B. 특정 약물 계열과 거대결장 위험도 분석</h3>
+                <h4>1. 클로자핀(Clozapine): 가장 높은 위험도를 가진 약물</h4>
+                <p>클로자핀은 치료 저항성 조현병 환자에게 탁월한 효과를 보이는 비정형 항정신병 약물이지만<sup>4</sup>, 동시에 가장 심각한 위장관 운동 저하(Clozapine-Induced Gastrointestinal Hypomotility, CIGH)를 유발하는 약물로 지목된다.<sup>2</sup></p>
+                <dl>
+                    <dt>역학적 심각성:</dt>
+                    <dd>클로자핀을 복용하는 환자의 최대 60%가 변비를 경험하며<sup>19</sup> ... (중략) ... 3배 이상 높은 변비 발생률이다.<sup>20</sup></dd>
                     
-                    <h4>만성 거대결장 (Chronic Megacolon)</h4>
-                    <p>선천적 원인 외에 후천적으로 발생하는 만성 거대결장은 "난치성 변비(refractory constipation)의 최종 단계(end-stage)" 또는 "진행된 결장 기능 부전(advanced colon failure)"으로 정의된다.<sup>10</sup> 이는 장기간의 배변 장애와 대변 정체로 인해 결장 벽의 신경 및 근육층이 비가역적인 손상을 입어, 결장이 연동 운동 능력을 상실하고 영구적으로 확장된 상태를 의미한다.<sup>11</sup></p>
-
-                    <h4>독성 거대결장 (Toxic Megacolon, TM)</h4>
-                    <p>이는 염증성 장 질환(IBD)이나 특정 감염성 대장염(infectious colitis)의 심각한 합병증으로 발생하는 급성, 응급 상태이다.<sup>6</sup> 핵심적인 정의는 (1) 기계적 폐쇄가 없는 비폐쇄성(nonobstructive) 결장 확장(일반적으로 횡행결장 직경 6 cm 이상)과 (2) 전신 독성(systemic toxicity, 예: 발열, 빈맥, 백혈구 증가)의 동반이다.<sup>6</sup> 병태생리학적으로는 심각한 점막 염증이 유도성 산화질소 합성효소(inducible nitric oxide synthase, iNOS)를 활성화시키고, 이로 인해 생성된 과도한 산화질소(NO)가 결장 평활근을 이완시켜 마비와 급성 확장을 유발하는 것으로 추정된다.<sup>6</sup></p>
-
-                    <h4>급성 결장 가성폐쇄 (Acute Colonic Pseudo-obstruction, ACPO)</h4>
-                    <p>Ogilvie's syndrome이라고도 불리며, 기계적 폐쇄 없이 급성 결장 확장이 발생한다는 점은 독성 거대결장과 유사하나, 전신 독성이나 염증의 징후가 동반되지 않는다는 점에서 감별된다.<sup>13</sup></p>
+                    <dt>치명률과 임상적 사각지대:</dt>
+                    <dd>CIGH는 단순 변비가 아니라 장 폐쇄, 허혈, 괴사, 천공으로 이어질 수 있는 치명적인 합병증이다.<sup>2</sup> ... (중략) ... 현재의 임상적 관심과 규제가 실제 위험을 심각하게 과소평가하고 있음을 보여준다.</dd>
                     
-                    <p>만성 정신질환 환자에서 관찰되는 거대결장은 이러한 분류가 명확히 나뉘지 않고 중첩되어 나타날 수 있다. 즉, 향정신성 약물과 질병 자체의 영향으로 만성적인 결장 운동 저하가 발생하여 '만성 거대결장'<sup>10</sup>의 기반을 형성할 수 있다. 이 상태에서 심각한 분변 매복(fecal impaction)이 발생하면, 딱딱한 대변이 장벽을 압박하여 '분변성 궤양(stercoral ulcer)'과 국소 '허혈(ischemia)'을 유발할 수 있다.<sup>3</sup> 이 허혈과 궤양으로 인한 염증 반응은 '독성 거대결장'<sup>6</sup>의 염증성 조건을 충족시키며, 만성 기능 부전 상태가 급성 전신 독성 상태로 이행하는 치명적인 경로가 될 수 있다.</p>
+                    <dt>위험 요인과 '항콜린성 부담':</dt>
+                    <dd>CIGH의 위험은 클로자핀의 용량이 높거나, 최근 투여를 시작했을 때 증가한다.<sup>2</sup> ... (중략) ... '마비시키는(paralytic)' 수준으로 급격히 악화시킨다.</dd>
+                </dl>
 
-                    <table>
-                        <caption>표 1. 거대결장의 임상적 분류 및 감별 진단</caption>
-                        <thead>
-                            <tr>
-                                <th>유형</th>
-                                <th>핵심 병태생리</th>
-                                <th>주요 원인</th>
-                                <th>임상적 특징</th>
-                                <th>정신질환과의 연관성</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>선천성 거대결장 (히르쉬스프룽병)</td>
-                                <td>원위부 장신경총의 선천적 결여 (Aganglionosis)</td>
-                                <td>유전적, 발달적 요인</td>
-                                <td>신생아기 태변 배출 지연, 만성 변비.<sup>8</sup></td>
-                                <td>직접적 연관성 낮음. (감별 진단)</td>
-                            </tr>
-                            <tr>
-                                <td>만성 후천성 거대결장</td>
-                                <td>만성 변비/폐쇄로 인한 결장 근신경계의 비가역적 손상 (Colon failure)<sup>10</sup></td>
-                                <td>난치성 변비 (서행성, 골반저 기능장애), 신경계 질환.<sup>10</sup></td>
-                                <td>심각한 만성 변비, 복부 팽만. 전신 독성 없음.</td>
-                                <td>정신질환자의 약물성/생활습관성 변비의 최종 단계일 수 있음.</td>
-                            </tr>
-                            <tr>
-                                <td>독성 거대결장 (TM)</td>
-                                <td>심각한 결장 염증 &rarr; NO 매개 평활근 마비 &rarr; 급성 확장<sup>6</sup></td>
-                                <td>염증성 장 질환(IBD), 감염성 대장염 (예: C. difficile).<sup>6</sup></td>
-                                <td>급성 발병, 복통, 복부 팽만, 전신 독성 (발열, 빈맥).<sup>6</sup></td>
-                                <td>유발 요인으로 항우울제, 항콜린제가 언급됨.<sup>6</sup> 만성 변비 합병증(허혈)으로 2차적 발생 가능.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </details>
+                <h4>2. 기타 비정형 항정신병 약물</h4>
+                <p>클로자핀 외 다른 비정형 항정신병 약물 역시 거대결장 및 심각한 변비와 연관된다. ... (중략) ... 다른 기전 역시 장 운동 저하에 관여할 수 있음을 시사한다.<sup>1</sup></p>
 
-            <details>
-                <summary><h2>III. 약물 유발성 위장관 운동 저하: 향정신성 약물의 핵심적 역할</h2></summary>
-                <div class="details-content">
-                    <p>만성 정신질환 환자에서 발생하는 거대결장의 가장 중요하고 직접적인 원인은 치료에 사용되는 향정신성 약물의 약리학적 부작용이다.<sup>5</sup></p>
+                <h4>3. 삼환계 항우울제(TCAs) 및 기타 항콜린성 약물</h4>
+                <p>고전적인 항우울제인 삼환계 항우울제(TCAs) ... (중략) ... '항콜린성 부담'을 가중시키는 주요 약물군이다.</p>
 
-                    <h3>A. 다중 수용체 차단 기전: 장신경계(ENS) 억제와 결장 통과 시간 지연</h3>
-                    <p>많은 향정신성 약물, 특히 항정신병 약물과 항우울제는 강력한 항콜린성(anticholinergic) 부작용을 지닌다.<sup>14</sup> 항콜린성 약물은 부교감신경계의 신경전달물질인 아세틸콜린의 작용을 차단하여 장 운동성(intestinal motility)을 심각하게 감소시키며, 이는 결장 마비(colonic ileus) 및 결장 확장으로 이어질 수 있다.<sup>14</sup> 심각한 경우, 장벽으로의 혈류 감소를 유발하여 허혈성 대장염(ischemic colitis)의 위험 요인이 되기도 한다.<sup>14</sup></p>
-                    <p>그러나 거대결장을 유발하는 기전은 단순한 아세틸콜린 수용체 차단을 넘어선다. 장의 연동 운동은 아세틸콜린뿐만 아니라 세로토닌(serotonin), 히스타민(histamine) 등 다양한 신경전달물질에 의해 복합적으로 조절된다.<sup>17</sup> 다수의 항정신병 약물은 이러한 여러 수용체(무스카린성, 세로토닌성, 히스타민성)를 동시에 억제하는 '다중 수용체 차단제(multi-receptor antagonists)'로 작용한다.<sup>17</sup> 이러한 광범위한 억제 작용은 위장관 통과 시간(gastrointestinal transit time)을 치명적인 수준으로 연장시키며<sup>17</sup>, 이는 만성 변비와 거대결장의 핵심적인 전구 단계가 된다.</p>
+                <table>
+                    <caption>표 2. 주요 향정신성 약물의 위장관 운동 저하 기전 및 거대결장 위험도</caption>
+                    <thead>
+                        <tr>
+                            <th>약물 / 계열</th>
+                            <th>주요 작용 기전 (수용체 차단)</th>
+                            <th>항콜린성 (M1)</th>
+                            <th>항히스타민성 (H1)</th>
+                            <th>항세로토닌성 (5-HT2A)</th>
+                            <th>변비/거대결장 위험도</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Clozapine</td>
+                            <td>M1, H1, 5-HT2A, &alpha;<sub>1</sub></td>
+                            <td>매우 높음</td>
+                            <td>매우 높음</td>
+                            <td>높음</td>
+                            <td>매우 높음 (변비 60%<sup>19</sup>, CIGH 사망률 27.5%<sup>2</sup>)</td>
+                        </tr>
+                        <tr>
+                            <td>Olanzapine</td>
+                            <td>M1, H1, 5-HT2A, D2</td>
+                            <td>높음</td>
+                            <td>매우 높음</td>
+                            <td>높음</td>
+                            <td>높음 (변비 연관성 ROR 1.50<sup>23</sup>)</td>
+                        </tr>
+                        <tr>
+                            <td>Quetiapine</td>
+                            <td>H1, &alpha;<sub>1</sub> (M1은 낮음)</td>
+                            <td>낮음-중등도</td>
+                            <td>높음</td>
+                            <td>중등도</td>
+                            <td>높음 (거대결장 ROR 4.34<sup>16</sup>)</td>
+                        </tr>
+                        <tr>
+                            <td>Risperidone</td>
+                            <td>5-HT2A, D2, &alpha;<sub>1</sub></td>
+                            <td>매우 낮음</td>
+                            <td>낮음</td>
+                            <td>매우 높음</td>
+                            <td>낮음-중등도 (변비 4.8%<sup>1</sup>, 거대결장 사례 보고<sup>24</sup>)</td>
+                        </tr>
+                        <tr>
+                            <td>Zotepine</td>
+                            <td>M1, H1, 5-HT2A, D2</td>
+                            <td>높음</td>
+                            <td>높음</td>
+                            <td>높음</td>
+                            <td>매우 높음 (거대결장 ROR 7.25<sup>16</sup>)</td>
+                        </tr>
+                        <tr>
+                            <td>Sulpiride</td>
+                            <td>D2 (M1은 없음)</td>
+                            <td>없음</td>
+                            <td>없음</td>
+                            <td>없음</td>
+                            <td>높음 (거대결장 ROR 4.53<sup>16</sup>)</td>
+                        </tr>
+                        <tr>
+                            <td>TCAs (예: Imipramine)</td>
+                            <td>M1, H1, &alpha;<sub>1</sub>, <em>NE/5-HT</em> 재흡수 차단</td>
+                            <td>매우 높음</td>
+                            <td>높음</td>
+                            <td>높음</td>
+                            <td>높음 (독성 거대결장 사례 보고<sup>24</sup>)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                    <h3>B. 특정 약물 계열과 거대결장 위험도 분석</h3>
+            <div id="tab-disease" class="tab-content">
+                <h2>IV. 질병 본연의 병태생리: 정신질환과 자율신경계 기능 장애</h2>
+                <p>향정신성 약물이 거대결장의 강력한 유발 요인인 것은 분명하지만, 정신 질환, 특히 조현병 자체가 지닌 내인성(intrinsic) 병태생리 역시 위장관 기능 저하의 기저 원인으로 작용할 수 있다.</p>
+                <h3>A. 뇌-장 축(Gut-Brain Axis)과 장신경계(ENS)의 내인성 기능 장애</h3>
+                <p>정신질환과 위장관 기능 장애는 '뇌-장 축(Gut-Brain Axis)'이라는 정교한 양방향 소통 시스템을 통해 밀접하게 연결되어 있다.<sup>29</sup> ... (중략) ... 장내 미생물 불균형(microbial dysbiosis)을 초래할 수 있다.<sup>29</sup></p>
+
+                <h3>B. 조현병과 자율신경계: 약물과 무관한 위장관 병리의 증거</h3>
+                <p>여러 증거들은 조현병 환자의 위장관 문제가 약물 투여 이전부터 존재할 수 있으며, 항정신병 약물이 "이미 존재하는 병리를 악화(compound)"시킬 가능성을 시사한다.<sup>36</sup></p>
+                <dl>
+                    <dt>약물 미복용 환자(Antipsychotic-naïve) 연구:</dt>
+                    <dd>항정신병 약물을 복용한 적이 없는 조현병 환자군에서 ... (중략) ... 염증성 병리가 내재되어 있을 가능성을 시사한다.</dd>
                     
-                    <h4>1. 클로자핀(Clozapine): 가장 높은 위험도를 가진 약물</h4>
-                    <p>클로자핀은 치료 저항성 조현병 환자에게 탁월한 효과를 보이는 비정형 항정신병 약물이지만<sup>4</sup>, 동시에 가장 심각한 위장관 운동 저하(Clozapine-Induced Gastrointestinal Hypomotility, CIGH)를 유발하는 약물로 지목된다.<sup>2</sup></p>
-                    <dl>
-                        <dt>역학적 심각성:</dt>
-                        <dd>클로자핀을 복용하는 환자의 최대 60%가 변비를 경험하며<sup>19</sup>, 객관적인 영상 검사상 결장 운동 저하(colonic hypomotility)는 80%의 환자에서 관찰된다.<sup>20</sup> 이는 다른 항정신병 약물 대비 3배 이상 높은 변비 발생률이다.<sup>20</sup></dd>
-                        
-                        <dt>치명률과 임상적 사각지대:</dt>
-                        <dd>CIGH는 단순 변비가 아니라 장 폐쇄, 허혈, 괴사, 천공으로 이어질 수 있는 치명적인 합병증이다.<sup>2</sup> 102건의 심각한 CIGH 사례를 분석한 연구에서는 사망률이 27.5%에 달하는 것으로 보고되었다.<sup>2</sup> 호주 및 뉴질랜드에서 22년간 수행된 약물 감시 연구<sup>4</sup>에 따르면, 심각한 CIGH의 유병률은 클로자핀 사용자 10,000명당 37건, 이로 인한 사망률은 10,000명당 7건에 달했다.<sup>4</sup> 이는 클로자핀의 가장 잘 알려진 치명적 부작용인 무과립구증(agranulocytosis)의 사망률(10,000명당 1~2건 추정)보다 3배 이상 높을 수 있음을 시사한다.<sup>4</sup> 그럼에도 불구하고, 공식적인 약물 안전성 정보에는 CIGH의 심각성이 거의 언급되지 않거나(&lt;1/10,000)<sup>4</sup>, 임상 현장의 인식 역시 현저히 낮은 상태이다.<sup>4</sup> 이는 클로자핀의 가장 치명적인 부작용이 혈액계가 아닌 '위장관계'일 수 있으며, 현재의 임상적 관심과 규제가 실제 위험을 심각하게 과소평가하고 있음을 보여준다.</dd>
-                        
-                        <dt>위험 요인과 '항콜린성 부담':</dt>
-                        <dd>CIGH의 위험은 클로자핀의 용량이 높거나, 최근 투여를 시작했을 때 증가한다.<sup>2</sup> 그러나 가장 중요한 위험 요인은 다른 항콜린성 약물과의 병용이다.<sup>2</sup> 정신과 환자들은 종종 항정신병 약물의 추체외로 부작용을 조절하기 위해 항콜린성 항파킨슨제(예: Benztropine)를 함께 처방받는다.<sup>22</sup> 거대결장 위험은 이처럼 환자가 복용하는 모든 약물(항정신병 약물, 항우울제, 항파킨슨제)의 누적된 '항콜린성 부담(Anticholinergic Burden)'의 총합으로 이해해야 하며, 이러한 약리학적 상승 작용이 장 운동을 '느리게 하는(slow)' 수준에서 '마비시키는(paralytic)' 수준으로 급격히 악화시킨다.</dd>
-                    </dl>
+                    <dt>자율신경계(ANS) 기능 장애:</dt>
+                    <dd>조현병의 '신경발달학적 이론'은 ... (중략) ... 위장관 운동 장애(pan-enteric GI dysmotility)를 유발하는 원인이 된다.<sup>37</sup></dd>
+                    
+                    <dt>미주신경(Vagus Nerve) 기능 저하:</dt>
+                    <dd>자율신경계의 균형에서 부교감신경계(parasympathetic)는 '휴식 및 소화(rest and digest)'를 담당하며 ... (중략) ... 보호적 역할을 할 수 있음을 암시한다.</dd>
+                </dl>
+                <p>이러한 증거들을 종합해 볼 때, 조현병 환자는 ... (중략) ... 두 가지 기전(내인성 교감신경 우위 + 약인성 부교감신경 차단)이 중첩되어 치명적인 장 마비를 유발할 수 있다.</p>
+            </div>
 
-                    <h4>2. 기타 비정형 항정신병 약물</h4>
-                    <p>클로자핀 외 다른 비정형 항정신병 약물 역시 거대결장 및 심각한 변비와 연관된다. 일본 부작용 데이터베이스(JADER)를 분석한 연구<sup>16</sup>에 따르면, 조현병 환자에서 거대결장 발생에 대해 Zotepine (보고 오즈비 $ROR=7.25$), Sulpiride ($ROR=4.53$), Quetiapine ($ROR=4.34$)이 통계적으로 유의미하게 높은 위험도를 보였다. 미국 FAERS 데이터베이스 분석에서도 Amisulpride ($ROR=4.07$), Paliperidone, Quetiapine, Olanzapine이 변비와 유의한 연관성을 나타냈다.<sup>23</sup></p>
-                    <p>특히 Quetiapine은 Venlafaxine(SNRI 계열 항우울제)과 병용 시 항콜린성 효과로 인한 대장 마비 및 확장 사례가 보고된 바 있다.<sup>14</sup> 리스페리돈(Risperidone)은 항콜린 작용이 거의 없음에도<sup>1</sup> 4.8%의 환자에서 변비를 유발할 수 있으며<sup>1</sup>, 거대결장 사례도 보고되었다.<sup>1</sup> 이는 항콜린성 작용 외에 세로토닌(5-HT) 또는 도파민(D2) 수용체 차단과 같은 다른 기전 역시 장 운동 저하에 관여할 수 있음을 시사한다.<sup>1</sup></p>
+            <div id="tab-lifestyle" class="tab-content">
+                <h2>V. 기여 요인으로서의 환자 생활 습관 및 인지적 특성</h2>
+                <p>약물과 질병 자체의 생물학적 요인 외에도, 만성 정신질환 환자 고유의 생활 습관 및 인지적 특성은 변비를 악화시키고 거대결장을 촉진하는 중요한 기여 요인이다.</p>
+                <h3>A. 저활동성(Akinesia), 저섬유질 식이, 불충분한 수분 섭취의 영향</h3>
+                <p>만성 정신질환 환자는 질병의 음성 증상(예: 무의욕증, 무감동)이나 약물의 진정 작용(sedation)으로 인해 ... (중략) ... 변비 위험을 높이는 기전과 유사하다.<sup>43</sup></p>
 
-                    <h4>3. 삼환계 항우울제(TCAs) 및 기타 항콜린성 약물</h4>
-                    <p>고전적인 항우울제인 삼환계 항우울제(TCAs) (예: Imipramine, Amitriptyline)는 무스카린성 아세틸콜린 수용체(muscarinic acetylcholine receptors)에 대한 친화도(affinity)가 매우 높아 강력한 항콜린제로 작용한다.<sup>18</sup> 이로 인해 변비, 구강 건조, 요폐(urinary retention)와 같은 말초적 부작용이 흔하게 발생하며<sup>25</sup>, 이는 장 폐쇄로 이어질 수 있는 심각한 위험이다.<sup>27</sup> Imipramine 과다 복용으로 인한 독성 거대결장 사례가 보고된 바 있으며<sup>24</sup>, TCAs는 '항콜린성 부담'을 가중시키는 주요 약물군이다.</p>
+                <h3>B. 배변 욕구 억제와 내장 감각 저하(Visceral Hyposensitivity)</h3>
+                <p>만성 변비의 중요한 위험 요인 중 하나는 "배변 욕구에 반응하지 않는 것(failure to respond to urge to defecate)"이다.<sup>42</sup> ... (중략) ... 딱딱한 분변 매복을 형성하는 직접적인 원인이 된다.</p>
+                <p>이러한 생활 습관 요인과 약물 요인은 악성적인 시너지(synergy)를 일으킨다. ... (중략) ... <strong>'약해진 모터(약물)'</strong>로 <strong>'더 무겁고 딱딱한 짐(생활 습관)'</strong>을 밀어내야 하는 극한의 상황에 처하게 되며, 이는 장 기능 부전(failure)을 가속화하고 분변 매복으로 이어지는 직접적인 경로가 된다.</p>
+            </div>
 
-                    <table>
-                        <caption>표 2. 주요 향정신성 약물의 위장관 운동 저하 기전 및 거대결장 위험도</caption>
-                        <thead>
-                            <tr>
-                                <th>약물 / 계열</th>
-                                <th>주요 작용 기전 (수용체 차단)</th>
-                                <th>항콜린성 (M1)</th>
-                                <th>항히스타민성 (H1)</th>
-                                <th>항세로토닌성 (5-HT2A)</th>
-                                <th>변비/거대결장 위험도</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Clozapine</td>
-                                <td>M1, H1, 5-HT2A, &alpha;<sub>1</sub></td>
-                                <td>매우 높음</td>
-                                <td>매우 높음</td>
-                                <td>높음</td>
-                                <td>매우 높음 (변비 60%<sup>19</sup>, CIGH 사망률 27.5%<sup>2</sup>)</td>
-                            </tr>
-                            <tr>
-                                <td>Olanzapine</td>
-                                <td>M1, H1, 5-HT2A, D2</td>
-                                <td>높음</td>
-                                <td>매우 높음</td>
-                                <td>높음</td>
-                                <td>높음 (변비 연관성 ROR 1.50<sup>23</sup>)</td>
-                            </tr>
-                            <tr>
-                                <td>Quetiapine</td>
-                                <td>H1, &alpha;<sub>1</sub> (M1은 낮음)</td>
-                                <td>낮음-중등도</td>
-                                <td>높음</td>
-                                <td>중등도</td>
-                                <td>높음 (거대결장 ROR 4.34<sup>16</sup>)</td>
-                            </tr>
-                            <tr>
-                                <td>Risperidone</td>
-                                <td>5-HT2A, D2, &alpha;<sub>1</sub></td>
-                                <td>매우 낮음</td>
-                                <td>낮음</td>
-                                <td>매우 높음</td>
-                                <td>낮음-중등도 (변비 4.8%<sup>1</sup>, 거대결장 사례 보고<sup>24</sup>)</td>
-                            </tr>
-                            <tr>
-                                <td>Zotepine</td>
-                                <td>M1, H1, 5-HT2A, D2</td>
-                                <td>높음</td>
-                                <td>높음</td>
-                                <td>높음</td>
-                                <td>매우 높음 (거대결장 ROR 7.25<sup>16</sup>)</td>
-                            </tr>
-                            <tr>
-                                <td>Sulpiride</td>
-                                <td>D2 (M1은 없음)</td>
-                                <td>없음</td>
-                                <td>없음</td>
-                                <td>없음</td>
-                                <td>높음 (거대결장 ROR 4.53<sup>16</sup>)</td>
-                            </tr>
-                            <tr>
-                                <td>TCAs (예: Imipramine)</td>
-                                <td>M1, H1, &alpha;<sub>1</sub>, <em>NE/5-HT</em> 재흡수 차단</td>
-                                <td>매우 높음</td>
-                                <td>높음</td>
-                                <td>높음</td>
-                                <td>높음 (독성 거대결장 사례 보고<sup>24</sup>)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </details>
+            <div id="tab-progression" class="tab-content">
+                <h2>VI. 만성 변비에서 거대결장으로의 이행: 병태생리학적 경로</h2>
+                <h3>A. 분변 매복(Fecal Impaction)의 형성 및 악화</h3>
+                <p>분변 매복(Fecal Impaction, FI)은 자발적으로 배출할 수 없는 거대한 압축 대변 덩어리로 정의된다.<sup>45</sup> ... (중략) ... 주로 직장이나 원위부 S상 결장에 딱딱한 대변이 정체되어 발생한다.<sup>3</sup></p>
 
-            <details>
-                <summary><h2>IV. 질병 본연의 병태생리: 정신질환과 자율신경계 기능 장애</h2></summary>
-                <div class="details-content">
-                    <p>향정신성 약물이 거대결장의 강력한 유발 요인인 것은 분명하지만, 정신 질환, 특히 조현병 자체가 지닌 내인성(intrinsic) 병태생리 역시 위장관 기능 저하의 기저 원인으로 작용할 수 있다.</p>
+                <h3>B. 장 폐쇄, 허혈, 그리고 비가역적 결장 확장</h3>
+                <p>치료되지 않은 분변 매복은 단순한 변비가 아니라, 장 내용물의 흐름을 막는 기계적 장 폐쇄(bowel obstruction)로 작용한다.<sup>15</sup> 이 과정에서 치명적인 합병증이 발생하며 거대결장으로 이행하는 악순환의 고리가 형성된다.</p>
+                <dl>
+                    <dt>분변성 궤양(Stercoral Ulceration) 및 허혈:</dt>
+                    <dd>딱딱한 대변 덩어리(fecolith)가 결장 벽의 특정 부위를 지속적으로 압박하면 ... (중략) ... 점막 궤양(stercoral ulcer)으로 이어진다.<sup>3</sup></dd>
+                    
+                    <dt>천공(Perforation):</dt>
+                    <dd>이 궤양이 심화되어 장벽 전층이 괴사하면 천공(perforation)이 발생할 수 있으며 ... (중략) ... 사망에 이르게 할 수 있다.<sup>3</sup></dd>
+                    
+                    <dt>거대결장으로의 이행 (악순환):</dt>
+                    <dd>만성적인 대변 정체와 분변 매복은 결장을 물리적으로 계속 팽창시킨다.<sup>48</sup> ... (중략) ... 악순환(vicious cycle)을 형성한다.</dd>
+                </dl>
 
-                    <h3>A. 뇌-장 축(Gut-Brain Axis)과 장신경계(ENS)의 내인성 기능 장애</h3>
-                    <p>정신질환과 위장관 기능 장애는 '뇌-장 축(Gut-Brain Axis)'이라는 정교한 양방향 소통 시스템을 통해 밀접하게 연결되어 있다.<sup>29</sup> 장신경계(Enteric Nervous System, ENS)는 종종 '제2의 뇌'라고 불리며, 중추신경계(CNS)와 유사한 구조, 기능, 면역 조절 및 신호전달 경로를 공유한다.<sup>32</sup> ENS는 인체 세로토닌의 90%를 포함하여 30가지 이상의 신경전달물질을 생성하며, 장 운동, 분비, 면역 반응 및 기분 조절에 관여한다.<sup>29</sup> 정신질환에서 이 축의 조절 장애는 장 운동성의 변화, 장 투과성(gut permeability) 증가, 그리고 장내 미생물 불균형(microbial dysbiosis)을 초래할 수 있다.<sup>29</sup></p>
-
-                    <h3>B. 조현병과 자율신경계: 약물과 무관한 위장관 병리의 증거</h3>
-                    <p>여러 증거들은 조현병 환자의 위장관 문제가 약물 투여 이전부터 존재할 수 있으며, 항정신병 약물이 "이미 존재하는 병리를 악화(compound)"시킬 가능성을 시사한다.<sup>36</sup></p>
-                    <dl>
-                        <dt>약물 미복용 환자(Antipsychotic-naïve) 연구:</dt>
-                        <dd>항정신병 약물을 복용한 적이 없는 조현병 환자군에서 위장관 염증의 생화학적 마커(ASCA)가 건강 대조군보다 현저히 높게 나타났다.<sup>36</sup> 이는 질병의 초기 단계부터 위장관의 염증성 병리가 내재되어 있을 가능성을 시사한다.</dd>
-                        
-                        <dt>자율신경계(ANS) 기능 장애:</dt>
-                        <dd>조현병의 '신경발달학적 이론'은 CNS와 ENS의 연결 문제, 즉 '비정상적인 교감신경 반사(abnormal sympathetic reflexes)'가 위장관 운동 이상을 초래할 수 있음을 시사한다.<sup>1</sup> 자율신경계 기능 장애는 그 자체로 광범위한 위장관 운동 장애(pan-enteric GI dysmotility)를 유발하는 원인이 된다.<sup>37</sup></dd>
-                        
-                        <dt>미주신경(Vagus Nerve) 기능 저하:</dt>
-                        <dd>자율신경계의 균형에서 부교감신경계(parasympathetic)는 '휴식 및 소화(rest and digest)'를 담당하며 장 운동을 촉진하고, 교감신경계(sympathetic)는 '투쟁 및 도피(fight or flight)'를 담당하며 장 운동을 억제한다. 조현병 환자는 부교감신경계의 핵심인 미주신경(vagus nerve)의 기능 저하와 연관될 수 있다.<sup>31</sup> 미주신경은 장의 상태를 뇌로 전달(afferent fibers)하고 뇌의 명령을 장으로 전달하여(efferent fibers) 장 운동을 조절한다.<sup>31</sup> 일부 역학 연구에서, 위(gastric)가 아닌 하부(subdiaphragmatic non-gastric) 미주신경을 절제하는 체간 미주신경 절제술(truncal vagotomy)이 조현병 발병 위험을 높인다는 보고는<sup>39</sup>, 이 신경 경로가 질병에 대해 보호적 역할을 할 수 있음을 암시한다.</dd>
-                    </dl>
-                    <p>이러한 증거들을 종합해 볼 때, 조현병 환자는 약물을 복용하기 이전부터, 질병 고유의 특성으로 인해 미주신경 기능은 저하되고 교감신경계는 항진된 '교감신경 우위(Sympathetic Dominance)' 상태에 있을 수 있다. 이는 만성적으로 장 운동이 억제된 기저 상태(baseline)를 의미한다. 이 상태에서 항콜린성 약물(강력한 부교감신경 차단제)이 투여되면, 장 운동을 억제하는 두 가지 기전(내인성 교감신경 우위 + 약인성 부교감신경 차단)이 중첩되어 치명적인 장 마비를 유발할 수 있다.</p>
-                </div>
-            </details>
-
-            <details>
-                <summary><h2>V. 기여 요인으로서의 환자 생활 습관 및 인지적 특성</h2></summary>
-                <div class="details-content">
-                    <p>약물과 질병 자체의 생물학적 요인 외에도, 만성 정신질환 환자 고유의 생활 습관 및 인지적 특성은 변비를 악화시키고 거대결장을 촉진하는 중요한 기여 요인이다.</p>
-
-                    <h3>A. 저활동성(Akinesia), 저섬유질 식이, 불충분한 수분 섭취의 영향</h3>
-                    <p>만성 정신질환 환자는 질병의 음성 증상(예: 무의욕증, 무감동)이나 약물의 진정 작용(sedation)으로 인해 신체 활동량이 현저히 낮은 좌식 생활(sedentary lifestyle)을 영위하는 경우가 많다.<sup>1</sup> 신체 활동 저하는 그 자체로 결장 통과 시간을 지연시키는 주요 위험 요인이다. 또한, 환자들은 종종 저섬유질(low fiber) 식이, 불충분한 수분 섭취(inadequate water intake)와 같은 불균형한 식습관을 가지며, 이는 변비를 더욱 악화시킨다.<sup>1</sup> 이러한 요인들은 노인 환자군에서 다약제 복용(polypharmacy), 허약함(frailty), 탈수 등과 복합적으로 작용하여 변비 위험을 높이는 기전과 유사하다.<sup>43</sup></p>
-
-                    <h3>B. 배변 욕구 억제와 내장 감각 저하(Visceral Hyposensitivity)</h3>
-                    <p>만성 변비의 중요한 위험 요인 중 하나는 "배변 욕구에 반응하지 않는 것(failure to respond to urge to defecate)"이다.<sup>42</sup> 조현병 환자는 질병의 특성상 통증 내성이 높고(high pain tolerance) 복부 팽만과 같은 내장 감각이 둔화되어 있을 수 있다.<sup>1</sup> 이로 인해 직장에 대변이 가득 차도 강한 배변 욕구를 인지하지 못하거나, 인지하더라도 음성 증상(avolition)이나 인지 기능 저하로 인해 화장실에 가는 배변 행위를 수행하지 못할 수 있다. 이러한 배변 욕구의 만성적인 무시와 억제는 정상적인 배변 반사(defecation reflex)를 둔화시키고, 대변이 직장에 정체되는 시간을 극단적으로 연장시켜 딱딱한 분변 매복을 형성하는 직접적인 원인이 된다.</p>
-                    <p>이러한 생활 습관 요인과 약물 요인은 악성적인 시너지(synergy)를 일으킨다. 저섬유질/저수분 식이는 대변을 '딱딱하고(hard)' '양이 많게(bulky)' 만든다.<sup>41</sup> 동시에 항콜린성 약물은 장의 '운동력(motor function)'을 저하시킨다.<sup>17</sup> 즉, 정신질환 환자의 장은 <strong>'약해진 모터(약물)'</strong>로 <strong>'더 무겁고 딱딱한 짐(생활 습관)'</strong>을 밀어내야 하는 극한의 상황에 처하게 되며, 이는 장 기능 부전(failure)을 가속화하고 분변 매복으로 이어지는 직접적인 경로가 된다.</p>
-                </div>
-            </details>
-
-            <details>
-                <summary><h2>VI. 만성 변비에서 거대결장으로의 이행: 병태생리학적 경로</h2></summary>
-                <div class="details-content">
-                    <h3>A. 분변 매복(Fecal Impaction)의 형성 및 악화</h3>
-                    <p>분변 매복(Fecal Impaction, FI)은 자발적으로 배출할 수 없는 거대한 압축 대변 덩어리로 정의된다.<sup>45</sup> 이는 만성 변비가 극도로 심화된 상태이며<sup>47</sup>, 신경정신질환(neuro-psychiatric disease) 환자, 노인, 거동이 불편한 환자군이 FI의 최고 위험군으로 분류된다.<sup>15</sup> 항정신병 약물과 같은 약물 복용<sup>15</sup> 및 만성적인 변비<sup>47</sup>가 주요 원인이며, 주로 직장이나 원위부 S상 결장에 딱딱한 대변이 정체되어 발생한다.<sup>3</sup></p>
-
-                    <h3>B. 장 폐쇄, 허혈, 그리고 비가역적 결장 확장</h3>
-                    <p>치료되지 않은 분변 매복은 단순한 변비가 아니라, 장 내용물의 흐름을 막는 기계적 장 폐쇄(bowel obstruction)로 작용한다.<sup>15</sup> 이 과정에서 치명적인 합병증이 발생하며 거대결장으로 이행하는 악순환의 고리가 형성된다.</p>
-                    <dl>
-                        <dt>분변성 궤양(Stercoral Ulceration) 및 허혈:</dt>
-                        <dd>딱딱한 대변 덩어리(fecolith)가 결장 벽의 특정 부위를 지속적으로 압박하면 해당 부위의 혈류가 차단되어 허혈(ischemia)이 발생한다.<sup>3</sup> 이 허혈성 손상은 점막 궤양(stercoral ulcer)으로 이어진다.<sup>3</sup></dd>
-                        
-                        <dt>천공(Perforation):</dt>
-                        <dd>이 궤양이 심화되어 장벽 전층이 괴사하면 천공(perforation)이 발생할 수 있으며, 이 경우 분변이 복강 내로 유출되어 복막염과 패혈증을 유발, 사망에 이르게 할 수 있다.<sup>3</sup></dd>
-                        
-                        <dt>거대결장으로의 이행 (악순환):</dt>
-                        <dd>만성적인 대변 정체와 분변 매복은 결장을 물리적으로 계속 팽창시킨다.<sup>48</sup> 이러한 만성적인 과도한 팽창(over-distention)은 결장 벽의 근육층과 장신경총에 비가역적인 손상을 입힌다. 이로 인해 결장은 고유의 연동 운동 능력을 완전히 상실(colon failure)<sup>11</sup>하고, 수축하지 못하는 거대한 '무긴장성 주머니(atonic sac)'로 변모한다. 이것이 바로 만성 후천성 거대결장<sup>10</sup>의 완성된 형태이다. 이렇게 확장된 결장은 기능이 더욱 저하되어 변비를 더욱 악화시키고, 이는 다시 분변 매복을 유발하여 결장을 더욱 팽창시키는 악순환(vicious cycle)을 형성한다.</dd>
-                    </dl>
-
-                    <table>
-                        <caption>표 3. 만성 변비에서 거대결장으로의 병태생리학적 이행 5단계</caption>
-                        <thead>
-                            <tr>
-                                <th>단계</th>
-                                <th>병태생리학적 기전</th>
-                                <th>주요 임상 징후 및 상태</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1단계: 기능성 운동 저하</td>
-                                <td>(질병) ANS 기능 장애 [1, 36] (약물) 항콜린성/다중 수용체 차단<sup>17</sup></td>
-                                <td>결장 통과 시간 지연, 배변 횟수 감소</td>
-                            </tr>
-                            <tr>
-                                <td>2단계: 만성 변비</td>
-                                <td>(생활 습관) 저섬유질, 저수분, 저활동성<sup>41</sup></td>
-                                <td>딱딱한 변, 배변 시 과도한 힘주기</td>
-                            </tr>
-                            <tr>
-                                <td>3단계: 분변 매복 (FI)</td>
-                                <td>(인지/행동) 배변 욕구 무시<sup>42</sup> &rarr; 대변 정체 및 압축</td>
-                                <td>복부 팽만, 복통, 역설적 설사(overflow diarrhea), 촉지되는 분변 [15, 45]</td>
-                            </tr>
-                            <tr>
-                                <td>4단계: 만성 거대결장</td>
-                                <td>(물리적) 만성적 과팽창 &rarr; 결장 근신경계의 비가역적 손상</td>
-                                <td>난치성 변비, 비가역적 결장 확장 (Colon failure)<sup>10</sup></td>
-                            </tr>
-                            <tr>
-                                <td>5단계: 치명적 합병증</td>
-                                <td>(허혈성) FI의 압력 &rarr; 분변성 궤양, 허혈, 천공<sup>3</sup><br>(염증성) 허혈/염증 &rarr; NO 매개 &rarr; 독성 거대결장<sup>6</sup></td>
-                                <td>급성 복통, 복막염 징후, 전신 독성 (패혈증)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </details>
-
-            <details open> <summary><h2>VII. 결론: 만성 정신질환자 거대결장의 다요인적 상호작용 모델</h2></summary>
-                <div class="details-content">
-                    <h3>A. '3중 위협(Three-Hit)' 가설: 위험의 상승적 중첩</h3>
-                    <p>만성 정신질환 환자에서 발생하는 거대결장은 단일 원인에 의한 것이 아니라, 세 가지 핵심 요인이 순차적, 혹은 동시에 중첩되어 발생하는 '다중 타격(multi-hit)' 모델로 설명할 수 있다.</p>
-                    <ol>
-                        <li><strong>1차 위협 (기저 요인: 질병 자체):</strong> 조현병과 같은 정신 질환은 그 자체로 뇌-장 축 및 자율신경계(ANS)의 기능 부전(예: 교감신경 우위, 미주신경 기능 저하)을 유발하여, 위장관의 기저 운동성을 만성적으로 저하시킨다.<sup>1</sup></li>
-                        <li><strong>2차 위협 (약리학적 요인: 약물):</strong> 이 기저 상태에서, 높은 '항콜린성 부담'을 가진 약물(클로자핀, TCAs, 항파킨슨제 등)이 다제병용으로 투여된다.<sup>2</sup> 이는 장 운동을 촉진하는 부교감신경계를 강력히 차단하여 '느린 장(slow gut)'을 '마비된 장(paralytic gut)'(CIGH)으로 급격히 악화시킨다.<sup>4</sup></li>
-                        <li><strong>3차 위협 (촉진 요인: 생활 습관):</strong> 저활동성, 저섬유질/저수분 식이, 그리고 배변 욕구 무시(인지 저하 포함)와 같은 생활 습관 요인<sup>22</sup>은 딱딱한 분변 매복(fecolith)을 형성한다.<sup>46</sup> 이는 기능이 마비된 장에 극심한 기계적 부담을 가중시키고, 장벽을 압박하여 허혈과 궤양을 유발한다.<sup>3</sup> 이는 결국 비가역적 확장(거대결장)과 치명적인 천공성 합병증으로 이어지는 악순환을 완성시킨다.</li>
-                    </ol>
-
-                    <h3>B. 임상적 시사점 및 예방 전략 제언</h3>
-                    <p>이러한 병태생리학적 고찰은 만성 정신질환 환자를 치료하는 임상 현장에 다음과 같은 강력한 시사점을 제공한다.</p>
-                    <ol>
-                        <li>첫째, 만성 정신질환 환자, 특히 클로자핀이나 다제 약물을 복용 중인 환자에게 변비는 단순한 부작용이 아닌, 치명적 합병증(거대결장)의 전조 증상(sentinel sign)으로 간주되어야 한다.<sup>2</sup></li>
-                        <li>둘째, 클로자핀 유발성 위장관 운동 저하(CIGH)의 치명률<sup>4</sup>을 고려할 때, 무과립구증에 대한 정기 혈액 검사 모니터링에 준하는 '장 기능 모니터링(Bowel Monitoring)' 프로토콜이 임상 현장에 시급히 도입되어야 한다.</li>
-                        <li>셋째, 변비 발생 후의 사후적 처방이 아닌, 예방적 완하제(prophylactic laxatives)의 적극적인 사용이 필요하며<sup>19</sup>, 환자의 인지적 특성을 고려한 생활 습관(식이, 수분, 운동) 중재가 반드시 병행되어야 한다.<sup>22</sup></li>
-                        <li>넷째, 정신과 임상의는 약물 처방 시 개별 약물의 부작용뿐만 아니라, 환자가 복용하는 모든 약물의 총체적인 '항콜린성 부담'을 정기적으로 평가하고<sup>25</sup>, 불필요한 항콜린성 약물의 병용을 최소화하려는 노력을 기울여야 한다.<sup>2</sup></li>
-                    </ol>
-                    <p>결론적으로, 만성 정신질환 환자의 거대결장은 자율신경계의 기질적 결함, 강력한 약리학적 개입, 그리고 만성적인 생활 습관의 방치가 결합되어 발생하는, 예방 가능한 의인성(iatrogenic) 및 질병-연관성 재앙이다.<sup>5</sup></p>
-                </div>
-            </details>
-        </main>
+                <table>
+                    <caption>표 3. 만성 변비에서 거대결장으로의 병태생리학적 이행 5단계</caption>
+                    <thead>
+                        <tr>
+                            <th>단계</th>
+                            <th>병태생리학적 기전</th>
+                            <th>주요 임상 징후 및 상태</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1단계: 기능성 운동 저하</td>
+                            <td>(질병) ANS 기능 장애 [1, 36] (약물) 항콜린성/다중 수용체 차단<sup>17</sup></td>
+                            <td>결장 통과 시간 지연, 배변 횟수 감소</td>
+                        </tr>
+                        <tr>
+                            <td>2단계: 만성 변비</td>
+                            <td>(생활 습관) 저섬유질, 저수분, 저활동성<sup>41</sup></td>
+                            <td>딱딱한 변, 배변 시 과도한 힘주기</td>
+                        </tr>
+                        <tr>
+                            <td>3단계: 분변 매복 (FI)</td>
+                            <td>(인지/행동) 배변 욕구 무시<sup>42</sup> &rarr; 대변 정체 및 압축</td>
+                            <td>복부 팽만, 복통, 역설적 설사(overflow diarrhea), 촉지되는 분변 [15, 45]</td>
+                        </tr>
+                        <tr>
+                            <td>4단계: 만성 거대결장</td>
+                            <td>(물리적) 만성적 과팽창 &rarr; 결장 근신경계의 비가역적 손상</td>
+                            <td>난치성 변비, 비가역적 결장 확장 (Colon failure)<sup>10</sup></td>
+                        </tr>
+                        <tr>
+                            <td>5단계: 치명적 합병증</td>
+                            <td>(허혈성) FI의 압력 &rarr; 분변성 궤양, 허혈, 천공<sup>3</sup><br>(염증성) 허혈/염증 &rarr; NO 매개 &rarr; 독성 거대결장<sup>6</sup></td>
+<td>급성 복통, 복막염 징후, 전신 독성 (패혈증)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
     </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            // 모든 탭 콘텐츠 숨기기
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+
+            // 모든 탭 링크에서 'active' 클래스 제거
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+
+            // 클릭된 탭 콘텐츠 보이기 및 버튼 활성화
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // 페이지 로드 시 첫 번째 탭을 기본으로 활성화
+        document.addEventListener("DOMContentLoaded", function() {
+            // 기본으로 첫 번째 탭 콘텐츠를 활성화 상태로 둡니다.
+            // HTML의 'tab-definition' div에 'active' 클래스가 이미 적용되어 있습니다.
+        });
+    </script>
 
 </body>
 </html>
