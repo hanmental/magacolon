@@ -8,7 +8,82 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
             line-height: 1.6;
-            backgr기 */
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 960px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid #005a9c;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #004a80;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #555;
+            margin-top: 10px;
+        }
+        .author {
+            font-size: 1em;
+            font-style: italic;
+            color: #6c757d;
+        }
+        
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .card-link {
+            display: block;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 25px;
+            text-decoration: none;
+            color: #343a40;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%; /* 그리드 아이템 높이 통일 */
+            box-sizing: border-box; /* 패딩 포함 높이 계산 */
+        }
+        
+        .card-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            border-color: #005a9c;
+        }
+        
+        .card-link .title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #005a9c;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .card-link .description {
+            font-size: 0.95em;
+            color: #495057;
+            line-height: 1.7;
+        }
+        
+        .card-link.highlight {
+            background-color: #e6f7ff; /* 강조 시 사용하기기 */
             border-color: #b3e0ff;
         }
 
